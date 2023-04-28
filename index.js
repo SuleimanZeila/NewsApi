@@ -10,6 +10,8 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
+const PORT = process.env.port | 3000
+
 //mongodb Connection
 // mongoose.connect(process.env.mongodburl, {useNewUrlParser: true })
 //   .then(() => console.log('Connected to MongoDB'))
@@ -25,8 +27,8 @@ const startServer = async () => {
       console.log('Connected to MongoDB');
   
       // Start listening on port 3000
-      app.listen(3000, () => {
-        console.log('Server listening on port 3000');
+      app.listen(PORT, () => {
+        console.log('Server listening on port'+PORT);
       });
     } catch (error) {
       console.error(error);
